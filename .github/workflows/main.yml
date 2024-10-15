@@ -1,12 +1,9 @@
 name: Renovate
 
 on:
-  workflow_dispatch:  # Allows manual triggering
-  schedule:
-    - cron: "0 0 * * *"  # Runs daily at midnight
-  pull_request:
+  push:
     branches:
-      - main
+      - main  # Change this to your desired branch, if necessary
 
 jobs:
   renovate:
@@ -18,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Specify the Node.js version you need
+          node-version: '22'  # Specify the Node.js version you need
 
       - name: Install Renovate
         run: npm install -g renovate
